@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '@/axios.js'
 import UserList from '@/components/UserList.vue'
 
 export default {
@@ -36,7 +36,7 @@ export default {
     },
     loadUsers() {
       axios
-        .get(' http://localhost:3004/users')
+        .get('/users')
         .then(response => {
           this.users = response.data
         })

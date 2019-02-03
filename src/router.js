@@ -1,34 +1,53 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/views/Home.vue'
-import About from '@/views/About.vue'
-import Users from '@/views/Users.vue'
-import EditUser from '@/views/EditUser.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
+  linkActiveClass: 'active',
   routes: [
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: () => import('@/views/Home.vue')
     },
     {
       path: '/users',
       name: 'users',
-      component: Users
+      component: () => import('@/views/Users.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/about',
       name: 'about',
-      component: About
+      component: () => import('@/views/About.vue')
     },
     {
       path: '/edit/:userId',
       name: 'edit',
-      component: EditUser
+      component: () => import('@/views/EditUser.vue')
     }
   ]
 })
+
+const check = () => false
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // этот путь требует авторизации, проверяем залогинен ли
+    // пользователь, и если нет, перенаправляем на страницу логина
+    if (!check()) {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    } else {
+      next()
+    }
+  } else {
+    next() // всегда так или иначе нужно вызвать next()!
+  }
+})
+
+export default router
