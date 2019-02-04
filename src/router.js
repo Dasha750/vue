@@ -27,11 +27,16 @@ const router = new Router({
       path: '/edit/:userId',
       name: 'edit',
       component: () => import('@/views/EditUser.vue')
+    },
+    {
+      path: '/create',
+      name: 'create',
+      component: () => import('@/views/CreateUser.vue')
     }
   ]
 })
 
-const check = () => false
+const check = () => true
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {

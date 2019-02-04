@@ -10,16 +10,32 @@
         <input id="user-lastname" v-model="localUser.lastName" type="text" class="form-control" />
       </div>
       <div class="form-group">
+        <label for="user-balance">User balance</label>
+        <input id="user-balance" v-model="localUser.balance" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="user-age">User age</label>
+        <input id="user-age" v-model="localUser.age" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
         <label for="user-name">Company</label>
         <input id="company" v-model="localUser.company" type="text" class="form-control" />
       </div>
       <div class="form-group">
-        <label for="user-name">Email</label>
-        <input id="email" v-model="localUser.email" type="text" class="form-control" />
+        <label for="user-email">Email</label>
+        <input id="user-email" v-model="localUser.email" type="text" class="form-control" />
       </div>
       <div class="form-group">
-        <label for="user-name">Phone</label>
-        <input id="phone" v-model="localUser.phone" type="text" class="form-control" />
+        <label for="user-address">Address</label>
+        <input id="user-address" v-model="localUser.address" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="user-phone">Phone</label>
+        <input id="user-phone" v-model="localUser.phone" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="user-about">About</label>
+        <textarea id="user-about" v-model="localUser.about" class="form-control" />
       </div>
     </form>
     <pre>{{ localUser }}</pre>

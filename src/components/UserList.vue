@@ -65,7 +65,6 @@ export default {
   },
   methods: {
     removeUser: function(id) {
-      console.log('USERSLIST remove', id)
       this.$emit('click', id)
     }
   }
