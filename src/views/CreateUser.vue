@@ -9,6 +9,7 @@
 <script>
 import axios from 'axios'
 import UserForm from '@/components/UserForm.vue'
+import { URL_API } from '@/constants/config.js'
 
 export default {
   name: 'EditUser',
@@ -20,7 +21,7 @@ export default {
   }),
   computed: {
     url() {
-      return `http://localhost:3004/users`
+      return `${URL_API}users`
     },
     editUsers() {
       return { ...this.user, registered: this.userRegistered() }
@@ -42,5 +43,3 @@ export default {
   }
 }
 </script>
-
-<style scoped></style>

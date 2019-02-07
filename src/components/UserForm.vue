@@ -6,6 +6,11 @@
         <input id="user-name" v-model="localUser.firstName" type="text" class="form-control" />
       </div>
       <div class="form-group">
+        <label for="user-name">User avatar</label>
+        <input id="user-avatar" v-model="localUser.picture" type="text" class="form-control" />
+        <avatar-uploader v-model="localUser.picture" />
+      </div>
+      <div class="form-group">
         <label for="user-name">User lastname</label>
         <input id="user-lastname" v-model="localUser.lastName" type="text" class="form-control" />
       </div>
@@ -37,6 +42,7 @@
         <label for="user-about">About</label>
         <textarea id="user-about" v-model="localUser.about" class="form-control" />
       </div>
+      <datepicker v-model="localUser.registered"></datepicker>
     </form>
     <pre>{{ localUser }}</pre>
     <pre>{{ user }}</pre>
@@ -46,6 +52,10 @@
 <script>
 export default {
   name: 'UserForm',
+  components: {
+    Datepicker: () => import('@/components/datepicker.vue'),
+    AvatarUploader: () => import('@/components/avatar.vue')
+  },
   model: {
     prop: 'user',
     event: 'myupdate'
@@ -77,5 +87,3 @@ export default {
   }
 }
 </script>
-
-<style scoped></style>

@@ -15,7 +15,22 @@
           <option v-for="item in usersOnPageArr" :key="item" :value="item">{{ item }}</option>
         </select>
       </div>
-      <user-list :users="getUsers" @removeUser="parentRemove"></user-list>
+      <user-list :users="getUsers" @removeUser="parentRemove">
+        <template slot="table-header">
+          <tr>
+            <th>#</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Телефон</th>
+          </tr>
+        </template>
+        <template slot="table-row" slot-scope="props">
+          <td>{{ props.id + 1 }}</td>
+          <td>{{ props.firstName }}</td>
+          <td>{{ props.lastName }}</td>
+          <td>{{ props.phone }}</td>
+        </template>
+      </user-list>
       <pagination v-model="currentPage" :page-count="pageCount"></pagination>
     </div>
   </div>

@@ -1,37 +1,45 @@
 <template>
   <div>
+    <slot>fdsafa</slot>
     <table class="table table-hover">
       <thead>
-        <tr>
-          <th>#</th>
-          <th>Имя</th>
-          <th>Фамилия</th>
-          <th>Активен</th>
-          <th>Баланс</th>
-          <th>Email</th>
-          <th>Телефон</th>
-          <th>Зарегистрирован</th>
-          <th>Редактировать</th>
-        </tr>
+        <slot name="table-header">
+          <tr>
+            <th>#</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Активен</th>
+            <th>Баланс</th>
+            <th>Email</th>
+            <th>Телефон</th>
+            <th>Зарегистрирован</th>
+            <th>Редактировать</th>
+          </tr>
+        </slot>
       </thead>
       <tbody>
         <tr v-for="item in users" :key="item.id">
-          <td>{{ item.id + 1 }}</td>
-          <td>{{ item.firstName }}</td>
-          <td>{{ item.lastName }}</td>
-          <td>{{ item.isActive }}</td>
-          <td>{{ item.balance }}</td>
-          <td>{{ item.email }}</td>
-          <td>{{ item.phone }}</td>
-          <td>{{ item.registered }}</td>
-          <td>
-            <router-link class="btn btn-primary" :to="{ name: 'edit', params: { userId: item.id } }"
-              >edit</router-link
-            >
-            <button type="button" class="btn btn-primary delete" @click="removeUser(item.id)">
-              delete
-            </button>
-          </td>
+          <slot name="table-row" v-bind="item">
+            <td>{{ item.id + 1 }}</td>
+            <td>{{ item.firstName }}</td>
+            <td>{{ item.lastName }}</td>
+            <td>{{ item.isActive }}</td>
+            <td>{{ item.balance }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.phone }}</td>
+            <td>{{ item.registered }}</td>
+
+            <td>
+              <router-link
+                class="btn btn-primary"
+                :to="{ name: 'edit', params: { userId: item.id } }"
+                >edit</router-link
+              >
+              <button type="button" class="btn btn-primary delete" @click="removeUser(item.id)">
+                delete
+              </button>
+            </td>
+          </slot>
         </tr>
       </tbody>
       <tfoot>
@@ -65,7 +73,7 @@ export default {
   },
   methods: {
     removeUser: function(id) {
-      this.$emit('click', id)
+      this.$emit('removeUser', id)
     }
   }
 }

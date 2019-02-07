@@ -13,6 +13,7 @@ d
 <script>
 import axios from 'axios'
 import UserForm from '@/components/UserForm.vue'
+import { URL_API } from '@/constants/config.js'
 
 export default {
   name: 'EditUser',
@@ -27,7 +28,7 @@ export default {
       return this.$route.params.userId
     },
     url() {
-      return `http://localhost:3004/users/${this.id}`
+      return `${URL_API}users/${this.id}`
     }
   },
   mounted() {
@@ -53,5 +54,3 @@ export default {
   }
 }
 </script>
-
-<style scoped></style>

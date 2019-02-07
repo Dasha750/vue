@@ -32,6 +32,11 @@ const router = new Router({
       path: '/create',
       name: 'create',
       component: () => import('@/views/CreateUser.vue')
+    },
+    {
+      path: '/phonebook',
+      name: 'phonebook',
+      component: () => import('@/views/Phonebook.vue')
     }
   ]
 })

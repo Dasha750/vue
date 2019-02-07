@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">Fixed navbar</a>
+      <router-link class="navbar-brand" to="/">
+        Fixed navbar
+      </router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -20,6 +22,9 @@
           </router-link>
           <router-link class="nav-item" to="/users" tag="li">
             <a class="nav-link">Users</a>
+          </router-link>
+          <router-link class="nav-item" to="/phonebook" tag="li">
+            <a class="nav-link">Phonebook</a>
           </router-link>
         </ul>
       </div>

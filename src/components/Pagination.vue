@@ -1,11 +1,11 @@
 <template>
   <ul>
     <li
-      v-for="item in pagesObj"
+      v-for="item in pageCount"
       :key="item"
       type="button"
       class="btn btn-secondary pagination"
-      @click="goPage"
+      @click="goPage(item)"
     >
       {{ item }}
     </li>
@@ -25,18 +25,8 @@ export default {
       required: true
     }
   },
-  computed: {
-    pagesObj() {
-      let pages = []
-      for (let i = 1; i <= this.pageCount; i++) {
-        pages.push(i)
-      }
-      return pages
-    }
-  },
   methods: {
-    goPage() {
-      let currentPage = event.target.outerText
+    goPage(currentPage) {
       this.$emit('selectPage', currentPage)
     }
   }
