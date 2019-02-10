@@ -6,9 +6,6 @@
       Загрузка...
     </div>
     <div v-else>
-      <router-link class="btn btn-primary" to="/create" type="button" tag="button">
-        Add new user
-      </router-link>
       <div class="users-on-page">
         <span>Показывать пользователей на странице: </span>
         <select v-model="usersOnPage">
@@ -24,11 +21,12 @@
             <th>Телефон</th>
           </tr>
         </template>
-        <template slot="table-row" slot-scope="props">
-          <td>{{ props.id + 1 }}</td>
-          <td>{{ props.firstName }}</td>
-          <td>{{ props.lastName }}</td>
-          <td>{{ props.phone }}</td>
+        <template slot="table-row" slot-scope="{ user, test }">
+          <td>{{ user.id + 1 }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.phone }}</td>
+          <button type="button" @click="test">test</button>
         </template>
       </user-list>
       <pagination v-model="currentPage" :page-count="pageCount"></pagination>

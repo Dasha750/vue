@@ -1,6 +1,5 @@
 <template>
   <div>
-    <slot>fdsafa</slot>
     <table class="table table-hover">
       <thead>
         <slot name="table-header">
@@ -19,7 +18,7 @@
       </thead>
       <tbody>
         <tr v-for="item in users" :key="item.id">
-          <slot name="table-row" v-bind="item">
+          <slot name="table-row" :user="item" :test="testMethod">
             <td>{{ item.id + 1 }}</td>
             <td>{{ item.firstName }}</td>
             <td>{{ item.lastName }}</td>
@@ -74,6 +73,9 @@ export default {
   methods: {
     removeUser: function(id) {
       this.$emit('removeUser', id)
+    },
+    testMethod: function() {
+      alert('testmethod')
     }
   }
 }

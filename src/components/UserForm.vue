@@ -3,7 +3,18 @@
     <form>
       <div class="form-group">
         <label for="user-name">User name</label>
-        <input id="user-name" v-model="localUser.firstName" type="text" class="form-control" />
+        <input
+          id="user-name"
+          v-model="localUser.firstName"
+          v-validate="{ required: true }"
+          type="text"
+          class="form-control"
+          :class="{ 'is-invalid': errors.has('firstName') }"
+          name="firstName"
+        />
+        <span v-show="errors.has('firstName')" class="help-block text-danger">
+          {{ errors.first('firstName') }}
+        </span>
       </div>
       <div class="form-group">
         <label for="user-name">User avatar</label>
@@ -14,6 +25,7 @@
         <label for="user-name">User lastname</label>
         <input id="user-lastname" v-model="localUser.lastName" type="text" class="form-control" />
       </div>
+      <birthdaypicker v-model="localUser.birthday"></birthdaypicker>
       <div class="form-group">
         <label for="user-balance">User balance</label>
         <input id="user-balance" v-model="localUser.balance" type="text" class="form-control" />
@@ -38,10 +50,7 @@
         <label for="user-phone">Phone</label>
         <input id="user-phone" v-model="localUser.phone" type="text" class="form-control" />
       </div>
-      <div class="form-group">
-        <label for="user-about">About</label>
-        <textarea id="user-about" v-model="localUser.about" class="form-control" />
-      </div>
+      <editor v-model="localUser.about"></editor>
       <datepicker v-model="localUser.registered"></datepicker>
     </form>
     <pre>{{ localUser }}</pre>
@@ -54,8 +63,11 @@ export default {
   name: 'UserForm',
   components: {
     Datepicker: () => import('@/components/datepicker.vue'),
-    AvatarUploader: () => import('@/components/avatar.vue')
+    AvatarUploader: () => import('@/components/avatar.vue'),
+    Birthdaypicker: () => import('@/components/birthdaypicker.vue'),
+    Editor: () => import('@/components/vueEditor.vue')
   },
+  inject: ['$validator'],
   model: {
     prop: 'user',
     event: 'myupdate'

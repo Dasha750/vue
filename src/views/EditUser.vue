@@ -44,6 +44,11 @@ export default {
         .catch(error => console.error(error))
     },
     saveUser() {
+      this.$validator.validateAll()
+      if (this.errors.any()) {
+        alert('Форма не валидна')
+        return
+      }
       axios
         .patch(this.url, this.user)
         .then(() => {

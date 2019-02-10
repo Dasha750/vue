@@ -6,6 +6,7 @@
       "balance": "$1,474.03",
       "picture": "https://i.imgur.com/SZ5EFrV.png",
       "age": 32,
+      "birthday": "01.01.1986",
       "accessLevel": "user",
       "firstName": "Bird",
       "lastName": "Rodgers",
@@ -13,8 +14,8 @@
       "email": "bird.rodgers@tri@tribalog.tv",
       "phone": "+7 (872) 515-3666",
       "address": "485 Hyman Court, Leyner, Delaware, 8111",
-      "about": "ddSunt ex ex pariatur do est in quis irure ullamco esse consectetur amet consectetur. Incididunt occaecat consequat fugiat irure. Quis cupidatat commodo aliquip reprehenderit commodo voluptate officia nulla cupidatat aliqua nulla nostrud velit. Minim ex et officia ipsum ea elit voluptate quis aliquip excepteur id pariatur. Ut aliquip commodo excepteur consequat ad aute tempor commodo ipsum nostrud.",
-      "registered": "02.01.2018"
+      "about": "<h2><span style=\"color: rgb(161, 0, 0);\">dffasfasdffasfaddSunt ex ex pariatur do est in quis irure ullamco esse consectetur amet consectetur. Incididunt occaecat consequat fugiat irure. Quis cupidatat commodo aliquip reprehenderit commodo voluptate officia nulla cupidatat aliqua nulla nostrud velit. Minim ex et officia ipsum ea elit voluptate quis aliquip excepteur id pariatur. Ut aliquip commodo excepteur consequat ad aute tempor commodo ipsum nostrud.</span></h2>",
+      "registered": "05.01.2018"
     },
     {
       "id": 1,
@@ -30,7 +31,8 @@
       "phone": "+7 (947) 459-2642",
       "address": "223 Seeley Street, Sena, Washington, 8521",
       "about": "Cillum dolore aute et laboris et incididunt nulla aliqua id non proident anim. Sunt ullamco aute incididunt aliquip commodo incididunt duis proident consectetur elit non exercitation velit. Consequat enim aute elit non quis labore est aliqua Lorem cupidatat amet eiusmod ex aliqua. Id et pariatur sunt sint minim eu cupidatat adipisicing culpa fugiat veniam reprehenderit. Commodo ullamco aliquip reprehenderit commodo et. Nisi Lorem commodo voluptate deserunt eu amet incididunt in.",
-      "registered": "27.12.2018"
+      "registered": "27.12.2018",
+      "birthday": "12.02.2019"
     },
     {
       "id": 2,

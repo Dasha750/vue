@@ -5,6 +5,7 @@
     </p>
     <div class="row">
       <div class="col-md-2">
+        <!--<input ref="image" type="file" class="d-lg-none" @change="upload" />-->
         <input ref="image" type="file" class="hidden" @change="upload" />
         <button class="btn btn-primary btn-block" @click="selectNewImage">Выбрать новую</button>
       </div>
@@ -61,4 +62,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style>
+.hidden {
+  display: none;
+}
+</style>
